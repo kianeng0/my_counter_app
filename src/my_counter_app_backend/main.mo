@@ -1,18 +1,11 @@
-actor {
-
-  var counter : Nat = 0;
-
+actor Counter {
+  stable var value = 0;
   public func inc() : async Nat {
-    counter += 1;
-    return counter;
+    value += 3;
+    return value;
   };
-
-  public query func getCount() : async Nat {
-    return counter;
+  public func dec() : async Nat {
+    value -= 3;
+    return value;
   };
-
-  public func reset() : async Nat {
-    counter := 0;
-    return counter;
-  };
-};
+}
